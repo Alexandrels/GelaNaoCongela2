@@ -33,7 +33,7 @@
         android:layout_alignEnd="@+id/desligar_alarm"
         android:layout_marginTop="21dp" />
 
-    <TextView
+    <Button
         android:text="Ligar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
         android:layout_toLeftOf="@+id/update_alarm"
         android:layout_toStartOf="@+id/update_alarm" />
 
-    <TextView
+    <Button
         android:text="Desligar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
