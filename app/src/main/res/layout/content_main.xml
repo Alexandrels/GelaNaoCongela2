@@ -13,36 +13,6 @@
     tools:context="w2.com.br.gelanaocongela.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <TimePicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="33dp"
-        android:id="@+id/timePicker"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:text="Quer sua cerveja bem gelada?"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="13dp"
-        android:layout_marginEnd="13dp"
-        android:id="@+id/update_alarm"
-        android:layout_below="@+id/desligar_alarm"
-        android:layout_alignRight="@+id/desligar_alarm"
-        android:layout_alignEnd="@+id/desligar_alarm"
-        android:layout_marginTop="21dp" />
-
-    <Button
-        android:text="Ligar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:id="@+id/ligar_larm"
-        android:layout_below="@+id/timePicker"
-        android:layout_toLeftOf="@+id/update_alarm"
-        android:layout_toStartOf="@+id/update_alarm" />
-
     <Button
         android:text="Desligar"
         android:layout_width="wrap_content"
@@ -54,4 +24,31 @@
         android:layout_alignBottom="@+id/ligar_larm"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <TimePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/timePicker"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="Ligar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ligar_larm"
+        android:layout_below="@+id/timePicker"
+        android:layout_toLeftOf="@+id/update_alarm"
+        android:layout_toStartOf="@+id/update_alarm" />
+
+    <TextView
+        android:text="Quer sua cerveja bem gelada?"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="48dp"
+        android:layout_marginEnd="48dp"
+        android:id="@+id/update_alarm"
+        android:layout_below="@+id/desligar_alarm"
+        android:layout_alignRight="@+id/desligar_alarm"
+        android:layout_alignEnd="@+id/desligar_alarm" />
 </RelativeLayout>

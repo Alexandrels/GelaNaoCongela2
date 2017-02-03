@@ -53,11 +53,17 @@ public class MainActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
-                calendar.set(Calendar.HOUR_OF_DAY, timePicker.getHour());
-                calendar.set(Calendar.MINUTE, timePicker.getMinute());
+                int currentApiVersion = android.os.Build.VERSION.SDK_INT;
+                if (currentApiVersion > android.os.Build.VERSION_CODES.LOLLIPOP_MR1) {
+                    calendar.set(Calendar.HOUR_OF_DAY, timePicker.getHour());
+                    calendar.set(Calendar.MINUTE, timePicker.getMinute());
+                } else {
+                    calendar.set(Calendar.HOUR_OF_DAY, timePicker.getCurrentHour());
+                    calendar.set(Calendar.MINUTE, timePicker.getCurrentMinute());
+                }
 
-                int hora = timePicker.getHour();
-                int minuto = timePicker.getMinute();
+                int hora = timePicker.getCurrentHour();
+                int minuto = timePicker.getCurrentMinute();
 
                 String horaStr = String.valueOf(hora);
                 String minutoStr = String.valueOf(minuto);
@@ -67,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 setTextoAlarm("Alarme ligado!" + horaStr + " : " + minutoStr);
+
+                receiver.putExtra("extra", "alarme on");
 
                 pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, receiver, PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -81,6 +89,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 setTextoAlarm("Alarme desligado!");
                 alarmManager.cancel(pendingIntent);
+
+                receiver.putExtra("extra", "alarme off");
+                sendBroadcast(receiver);
             }
         });
 
